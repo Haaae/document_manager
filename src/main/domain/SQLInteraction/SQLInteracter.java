@@ -8,14 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import main.constants.SQL.Info;
 import main.constants.SQL.Query;
-import main.domain.Repository;
 
 public class SQLInteracter {
 
     private SQLInteracter() {}
 
-    public static List<Repository> readRepositoryList() {
-        List<Repository> repositories = new ArrayList<>();
+    public static List<String> readRepositoryList() {
+        List<String> repositories = new ArrayList<>();
 
         String query = Query.READING_REPOSITORY_LIST;
         try {
@@ -25,7 +24,7 @@ public class SQLInteracter {
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()) {
-                repositories.add(new Repository(rs.getString(1)));
+                repositories.add(rs.getString(1));
             }
             connection.close();
         } catch (Exception e) {
