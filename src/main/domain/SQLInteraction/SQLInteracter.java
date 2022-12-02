@@ -54,7 +54,7 @@ public class SQLInteracter {
     public static List<Status> readStatusesNoInRepository(String repositoryName) {
         List<Status> statuses = new ArrayList<>();
 
-        String query = Query.READING_STATUSES_NO_IN_REPOSITORY_WITHOUT_NAME + repositoryName;
+        String query = Query.READING_STATUSES_IN_REPOSITORY_WITHOUT_NAME + repositoryName;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
@@ -62,7 +62,7 @@ public class SQLInteracter {
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()) {
-                statuses.add(new Status(rs.getString(ColumnIndex.STATUS_REPOSITORY_NAME), rs.getInt(ColumnIndex.STATUS_NO)));
+                statuses.add(new Status(repositoryName, rs.getInt(ColumnIndex.STATUS_NO)));
             }
             connection.close();
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class SQLInteracter {
     public static List<Document> readDocumentNameInStatus(String repositoryName, int statusNo) {
         List<Document> documents = new ArrayList<>();
 
-        String query = Query.READING_STATUSES_NO_IN_REPOSITORY_WITHOUT_NAME + repositoryName;
+        String query = "SELECT * FROM Document WHERE repository_name = " + repositoryName + " status_no = " + statusNo;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
