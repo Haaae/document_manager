@@ -107,13 +107,43 @@ public class SQLInteracter {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, name);
 
-            Statement statement = connection.createStatement();
-            statement.executeQuery(query);
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void insertStatus(String repositoryName, String message, int no) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
+
+            int statusCount = countStatuses(repositoryName);
+
+            String query = "INSERT INTO Repository_status VALUES (?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, statusCount++);
+            preparedStatement.setString(2, message);
+            preparedStatement.setString(3, repositoryName);
 
             connection.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static int countStatuses(String repositoryName) {
+        String statusCountQuery = "SELECT count(*) FROM Repository_status WHERE repository_name = " + repositoryName;
+        int statusCount = -1;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
+            Statement statement = connection.createStatement();
+            statusCount = statement.executeQuery(statusCountQuery).getInt(1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return statusCount;
     }
 
     private static void executeQuery(String query) {

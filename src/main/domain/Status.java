@@ -1,7 +1,5 @@
 package main.domain;
 
-import java.util.ArrayList;
-import java.util.List;
 import main.domain.SQLInteraction.SQLInteracter;
 
 public class Status {
