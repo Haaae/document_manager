@@ -14,7 +14,14 @@ public class RepositoryManager {
     }
 
     @Override public String toString() {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        int count = 1;
+
+        for (String repository : repositories) {
+            stringBuilder.append(count++).append(repository).append("\n");
+        }
+
+        return stringBuilder.toString();
     }
 
     public boolean contains(String name) {
@@ -48,7 +55,7 @@ public class RepositoryManager {
 
     private void insertionValidate(String name) {
         if (repositories.contains(name)) {
-            throw new IllegalArgumentException(Exception.NOT_FOUND_DELETE_REPOSITORY);
+            throw new IllegalArgumentException(Exception.ALREADY_EXIST_REPOSITORY);
         }
     }
 }
