@@ -2,6 +2,7 @@ package main.domain.SQLInteraction;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -80,24 +81,42 @@ public class SQLInteracter {
     }
 
     public static void deleteRepository(String name) {
-        String query = Query.DELETE_REPOSITORY_WITHOUT_NAME + name;
-        deleteQuery(query);
+        String query = Query.DELETE_REPOSITORY_WITHOUT_NAME + "'" + name + "'";
+        executeQuery(query);
     }
 
     public static void deleteStatus(int no, String repositoryName) {
-        String query = "DELETE FROM Repository_status WHERE no = " + no
-                + ", repository_name = " + repositoryName;
-        deleteQuery(query);
+        String query = "DELETE FROM Repository_status WHERE no = '" + no + "'"
+                + ", repository_name = " + repositoryName + "'";
+        executeQuery(query);
     }
 
     public static void deleteDocument(String name, String repositoryName, int statusNo) {
-        String query = "DELETE FROM Document WHERE name = " + name + ", repository_name = " + repositoryName
-                + ", status_no = " + statusNo;
-        deleteQuery(query);
+        String query = "DELETE FROM Document WHERE name = " + name + ", repository_name = '" + repositoryName + "'"
+                + ", status_no = '" + statusNo + "'";
+        executeQuery(query);
 
     }
 
-    private static void deleteQuery(String query) {
+    public static void insertRepository(String name) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
+
+            String query = "INSERT INTO Repository VALUES (?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+
+            Statement statement = connection.createStatement();
+            statement.executeQuery(query);
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void executeQuery(String query) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);

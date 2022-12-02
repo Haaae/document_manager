@@ -13,14 +13,16 @@ public class RepositoryManager {
         repositories = SQLInteracter.readRepositories();
     }
 
+    @Override public String toString() {
+        return "";
+    }
+
     public boolean contains(String name) {
         return repositories.contains(name);
     }
 
     public void deleteRepository(String name) {
-        if (!repositories.contains(name)) {
-            throw new IllegalArgumentException(Exception.NOT_FOUND_DELETE_REPOSITORY);
-        }
+        deletionValidate(name);
 
         List<Status> statuses = SQLInteracter.readStatusesNoInRepository(name);
 
@@ -32,9 +34,21 @@ public class RepositoryManager {
         SQLInteracter.deleteRepository(name);
     }
 
+    public void insertRepository(String name) {
+        insertionValidate(name);
+        SQLInteracter.insertRepository(name);
+        repositories.add(name);
+    }
 
+    private void deletionValidate(String name) {
+        if (!repositories.contains(name)) {
+            throw new IllegalArgumentException(Exception.NOT_FOUND_DELETE_REPOSITORY);
+        }
+    }
 
-    @Override public String toString() {
-        return "";
+    private void insertionValidate(String name) {
+        if (repositories.contains(name)) {
+            throw new IllegalArgumentException(Exception.NOT_FOUND_DELETE_REPOSITORY);
+        }
     }
 }
