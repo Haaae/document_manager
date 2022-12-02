@@ -37,20 +37,6 @@ public class SQLInteracter {
         return repositories;
     }
 
-    public static void deleteRepository(String name) {
-        String query = Query.DELETE_REPOSITORY_WITHOUT_NAME + name;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
-            Statement statement = connection.createStatement();
-            statement.executeQuery(query);
-            connection.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public static List<Status> readStatusesNoInRepository(String repositoryName) {
         List<Status> statuses = new ArrayList<>();
 
@@ -83,7 +69,7 @@ public class SQLInteracter {
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()) {
-                documents.add(new Document(repositoryName, statusNo, rs.getString(ColumnIndex.DOCUMENT_NAME)));
+                documents.add(new Document(repositoryName, statusNo, rs.getString(ColumnIndex.DOCUMENT_NAME), rs.getString(ColumnIndex.DOCUMENT_CONTENTS)));
             }
             connection.close();
         } catch (Exception e) {
@@ -91,5 +77,35 @@ public class SQLInteracter {
         }
 
         return Collections.unmodifiableList(documents);
+    }
+
+    public static void deleteRepository(String name) {
+        String query = Query.DELETE_REPOSITORY_WITHOUT_NAME + name;
+        deleteQuery(query);
+    }
+
+    public static void deleteStatus(int no, String repositoryName) {
+        String query = "DELETE FROM Repository_status WHERE no = " + no
+                + ", repository_name = " + repositoryName;
+        deleteQuery(query);
+    }
+
+    public static void deleteDocument(String name, String repositoryName, int statusNo) {
+        String query = "DELETE FROM Document WHERE name = " + name + ", repository_name = " + repositoryName
+                + ", status_no = " + statusNo;
+        deleteQuery(query);
+
+    }
+
+    private static void deleteQuery(String query) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
+            Statement statement = connection.createStatement();
+            statement.executeQuery(query);
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

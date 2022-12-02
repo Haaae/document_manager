@@ -2,6 +2,7 @@ package main.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import main.domain.SQLInteraction.SQLInteracter;
 
 public class Status {
     private final String repositoryName;
@@ -17,6 +18,8 @@ public class Status {
         return no;
     }
 
-    public void deleteStatus() {}
+    public void deleteStatus() {
+        SQLInteracter.deleteStatus(no, repositoryName);
+    }
 
 }

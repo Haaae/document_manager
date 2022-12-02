@@ -30,12 +30,12 @@ public final class SQL {
     public static final class Query {
         public static final String READING_REPOSITORY_LIST =
                 SELECT + SPACE + ALL + SPACE + FROM + SPACE + REPOSITORY;
-        public static final String DELETE_REPOSITORY_WITHOUT_NAME =
-                DELETE + SPACE + FROM + SPACE + REPOSITORY + SPACE + WHERE + SPACE + NAME + SPACE + EQUAL + SPACE;
         public static final String READING_STATUSES_IN_REPOSITORY_WITHOUT_NAME =
                 SELECT + SPACE + ALL + SPACE + FROM + REPOSITORY_STATUS + WHERE + SPACE + REPOSITORY_NAME + SPACE + EQUAL + SPACE;
         public static final String READING_DOCUMENT_IN_REPOSITORY_STATUS =
                 SELECT + SPACE + ALL + SPACE + FROM + DOCUMENT + WHERE + SPACE + REPOSITORY_NAME + SPACE + EQUAL + SPACE;
+        public static final String DELETE_REPOSITORY_WITHOUT_NAME =
+                DELETE + SPACE + FROM + SPACE + REPOSITORY + SPACE + WHERE + SPACE + NAME + SPACE + EQUAL + SPACE;
     }
 
     public static final class ColumnIndex {
