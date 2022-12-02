@@ -3,14 +3,16 @@ package main.constants;
 import javax.print.attribute.standard.MediaSize.NA;
 
 public final class SQL {
-    private static final String SELECT      = "SELECT";
-    private static final String DELETE      = "DELETE";
-    private static final String FROM        = "FROM";
-    private static final String WHERE       = "WHERE";
-    private static final String REPOSITORY  = "Repository";
-    private static final String NAME        = "NAME";
-    private static final String EQUAL       = "=";
-    private static final String SPACE       = " ";
+    private static final String SELECT          = "SELECT";
+    private static final String DELETE          = "DELETE";
+    private static final String FROM            = "FROM";
+    private static final String WHERE           = "WHERE";
+    private static final String REPOSITORY      = "Repository";
+    private static final String NAME            = "NAME";
+    private static final String NO              = "no";
+    private static final String REPOSITORY_NAME = "repository_name";
+    private static final String EQUAL           = "=";
+    private static final String SPACE           = " ";
 
     private  SQL() {}
 
@@ -27,5 +29,8 @@ public final class SQL {
                 SELECT + SPACE + "name" + SPACE + FROM + SPACE + REPOSITORY;
         public static final String DELETE_REPOSITORY_WITHOUT_NAME =
                 DELETE + SPACE + FROM + SPACE + REPOSITORY + SPACE + WHERE + SPACE + NAME + SPACE + EQUAL + SPACE;
+
+        public static final String READING_STATUSES_NO_IN_REPOSITORY_WITHOUT_NAME =
+                SELECT + SPACE + NO + SPACE + WHERE + SPACE + REPOSITORY_NAME + SPACE + EQUAL + SPACE;
     }
 }
