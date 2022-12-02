@@ -132,6 +132,25 @@ public class SQLInteracter {
         }
     }
 
+    public static void insertDocument(String repositoryName, String contents, String name, int no) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
+
+
+            String query = "INSERT INTO Document VALUES (?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, contents);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, repositoryName);
+            preparedStatement.setInt(4, no);
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private static int countStatuses(String repositoryName) {
         String statusCountQuery = "SELECT count(*) FROM Repository_status WHERE repository_name = " + repositoryName;
         int statusCount = -1;
