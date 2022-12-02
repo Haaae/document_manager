@@ -4,11 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Status {
-    private int no;
+    private final String repositoryName;
+    private final int no;
     private String message;
-    private final List<Document> documents;
 
-    public Status() {
-        documents = new ArrayList<>();
+    public Status(String repositoryName, int no) {
+        this.repositoryName = repositoryName;
+        this.no = no;
     }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void deleteStatus() {}
+
 }
