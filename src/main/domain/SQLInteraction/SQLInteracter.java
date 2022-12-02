@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import main.constants.SQL.ColumnIndex;
 import main.constants.SQL.Info;
 import main.constants.SQL.Query;
 import main.domain.Document;
@@ -27,7 +28,7 @@ public class SQLInteracter {
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()) {
-                repositories.add(rs.getString(1));
+                repositories.add(rs.getString(ColumnIndex.REPOSITORY_NAME));
             }
             connection.close();
         } catch (Exception e) {
@@ -61,7 +62,7 @@ public class SQLInteracter {
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()) {
-                statuses.add(new Status(rs.getString(3), rs.getInt(1)));
+                statuses.add(new Status(rs.getString(ColumnIndex.STATUS_REPOSITORY_NAME), rs.getInt(ColumnIndex.STATUS_NO)));
             }
             connection.close();
         } catch (Exception e) {
@@ -82,7 +83,7 @@ public class SQLInteracter {
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()) {
-                documents.add(new Document(rs.getString(3), rs.getInt(1)));
+                documents.add(new Document(repositoryName, statusNo, rs.getString(ColumnIndex.DOCUMENT_NAME)));
             }
             connection.close();
         } catch (Exception e) {

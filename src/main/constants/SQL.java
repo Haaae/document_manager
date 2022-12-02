@@ -33,4 +33,15 @@ public final class SQL {
         public static final String READING_STATUSES_NO_IN_REPOSITORY_WITHOUT_NAME =
                 SELECT + SPACE + NO + SPACE + WHERE + SPACE + REPOSITORY_NAME + SPACE + EQUAL + SPACE;
     }
+
+    public static final class ColumnIndex {
+        public static final int DOCUMENT_CONTENTS = 1;
+        public static final int DOCUMENT_NAME = 2;
+        public static final int DOCUMENT_REPOSITORY_NAME = 3;
+        public static final int DOCUMENT_STATUS_NO = 4;
+        public static final int STATUS_NO = 1;
+        public static final int STATUS_MESSAGE = 2;
+        public static final int STATUS_REPOSITORY_NAME = 3;
+        public static final int REPOSITORY_NAME = 1;
+    }
 }

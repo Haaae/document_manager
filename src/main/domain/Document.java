@@ -1,14 +1,15 @@
 package main.domain;
 
 public class Document {
-    private String name;
-    private String contents;
+    private final String name;
     private final String repositoryName;
-    private final String status_no;
+    private final int statusNo;
+    private String contents;
 
-    public Document(String repositoryName, String status_no) {
+    public Document(String repositoryName, int statusNo, String name) {
+        this.name = name;
         this.repositoryName = repositoryName;
-        this.status_no = status_no;
+        this.statusNo = statusNo;
     }
 
     public void deleteDocument() {
