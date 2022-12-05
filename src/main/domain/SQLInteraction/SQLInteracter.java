@@ -113,7 +113,7 @@ public class SQLInteracter {
         }
     }
 
-    public static void insertStatus(String repositoryName, String message, int no) {
+    public static void insertStatus(String repositoryName, String message) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);

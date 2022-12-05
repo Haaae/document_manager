@@ -15,6 +15,9 @@ public class Status {
     public int getNo() {
         return no;
     }
+    public String getMessage() {
+        return message;
+    }
 
     public void deleteStatus() {
         SQLInteracter.deleteStatus(no, repositoryName);
