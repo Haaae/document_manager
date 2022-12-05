@@ -159,4 +159,11 @@ public class View {
         System.out.println("문서 내용");
         System.out.println(contents);
     }
+
+    public static void printIllegalRepository() {
+        System.out.println("해당 문서저장소가 존재하지 않습니다.");
+    }
+    public static void printIllegalStatus() {
+        System.out.println("해당 문서저장소 상태가 존재하지 않습니다.");
+    }
 }

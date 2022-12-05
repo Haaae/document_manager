@@ -35,7 +35,14 @@ public class Controller {
     }
 
     private static void serviceStatus() {
+        List<String> repositories = SQLInteracter.readRepositories();
         String selectedRepository = View.printSelectRepository();
+
+        if (!repositories.contains(selectedRepository)) {
+            View.printIllegalRepository();
+            return;
+        }
+
         int statusMenuInput = 1;
         do {
             statusMenuInput = View.printStatusMenu();
@@ -61,7 +68,14 @@ public class Controller {
     }
 
     private static void serviceDocument(String repository) {
+        List<Status> statuses = SQLInteracter.readStatusesNoInRepository(repository);
         int status = View.printSelectStatus();
+
+        if (statuses.stream().filter(i -> i.getNo() == status).count() != 1) {
+            View.printIllegalStatus();
+            return;
+        }
+
         int documentMenuInput = 1;
         do {
             documentMenuInput = View.printDocumentMenu();

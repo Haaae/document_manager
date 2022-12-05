@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09638c14-4cf3-46d4-b4b1-631a0fb2ecc1" name="변경" comment="docs : TODO, Requirements 작성">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document_version_manager.iml" afterDir="false" />
+    <list default="true" id="09638c14-4cf3-46d4-b4b1-631a0fb2ecc1" name="변경" comment="feat : 프로그램의 전체 흐름을 담당하는 Controller(mian) 구현">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/REAMED.md" beforeDir="false" afterPath="$PROJECT_DIR$/REAMED.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document_version_manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/document_version_manager.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/constants/SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/constants/SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controll/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controll/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/domain/SQLInteraction/SQLInteracter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/domain/SQLInteraction/SQLInteracter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,23 +38,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/82106/mysql-connector-j-8.0.31",
-    "project.structure.last.edited": "라이브러리",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/82106/mysql-connector-j-8.0.31&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.controll.Controller" />
+      <module name="document_version_manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.controll.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="애플리케이션.Controller" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -60,7 +88,9 @@
       <option name="presentableId" value="Default" />
       <updated>1669707092155</updated>
       <workItem from="1669707093678" duration="9843000" />
-      <workItem from="1669791826531" duration="10359000" />
+      <workItem from="1669791826531" duration="16943000" />
+      <workItem from="1669919875030" duration="19543000" />
+      <workItem from="1670150007516" duration="15722000" />
     </task>
     <task id="LOCAL-00001" summary="docs : TODO, Requirements 작성">
       <created>1669730794118</created>
@@ -69,7 +99,126 @@
       <option name="project" value="LOCAL" />
       <updated>1669730794118</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="docs : 데이터베이스 및 테이블 구현 명령">
+      <created>1669824687630</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669824687630</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat : 데이터베이스 테이블에 해당하는 객체 구현">
+      <created>1669923759418</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669923759418</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat : DB와 상호작용하는 클래스 정의 그 내부에 문서 저장소 목록 읽는 기능 구현">
+      <created>1669923832916</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669923832916</updated>
+    </task>
+    <task id="LOCAL-00005" summary="docs : 프로그램 출력 예시 작성">
+      <created>1669923861740</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669923861740</updated>
+    </task>
+    <task id="LOCAL-00006" summary="remain : Repository.java 삭제">
+      <created>1669924567525</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669924567525</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat : 메세지를 관리하는 상수 클래스 구현">
+      <created>1669924848405</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669924848405</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat : 저장소를 삭제하는 기능 구현">
+      <created>1669962928742</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669962928742</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat : 문서 저장소 상태 목록 읽어오는 기능 구현">
+      <created>1669976624388</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669976624389</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat : DB 테이블 컬럼 인덱스 상수화">
+      <created>1669977154403</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669977154403</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat : 문서 저장소 상태 내의 문서를 읽는 기능 구현">
+      <created>1669978337343</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669978337343</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat : 문서 저장소 상태, 문서 삭제 기능 구현">
+      <created>1669979729064</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669979729064</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat : 문서 저장소 추가하는 기능 구현">
+      <created>1669986522094</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669986522094</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat : 문서 저장소 상태를 추가하는 기능 구현">
+      <created>1669987579701</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669987579701</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat : 문서를 추가하는 기능 구현">
+      <created>1669987711112</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1669987711112</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat : 오류 메세지 추가">
+      <created>1669989082451</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1669989082451</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat : 입출력을 담당하는 View 클래스 구현">
+      <created>1670242971995</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1670242971995</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat : 프로그램의 전체 흐름을 담당하는 Controller(mian) 구현">
+      <created>1670243003070</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1670243003070</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,6 +237,35 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs : TODO, Requirements 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs : TODO, Requirements 작성" />
+    <MESSAGE value="docs : 데이터베이스 및 테이블 구현 명령" />
+    <MESSAGE value="feat : 데이터베이스 테이블에 해당하는 객체 구현" />
+    <MESSAGE value="feat : DB와 상호작용하는 클래스 정의 그 내부에 문서 저장소 목록 읽는 기능 구현" />
+    <MESSAGE value="docs : 프로그램 출력 예시 작성" />
+    <MESSAGE value="remain : Repository.java 삭제" />
+    <MESSAGE value="feat : 메세지를 관리하는 상수 클래스 구현" />
+    <MESSAGE value="feat : 저장소를 삭제하는 기능 구현" />
+    <MESSAGE value="feat : 문서 저장소 상태 목록 읽어오는 기능 구현" />
+    <MESSAGE value="feat : DB 테이블 컬럼 인덱스 상수화" />
+    <MESSAGE value="feat : 문서 저장소 상태 내의 문서를 읽는 기능 구현" />
+    <MESSAGE value="feat : 문서 저장소 상태, 문서 삭제 기능 구현" />
+    <MESSAGE value="feat : 문서 저장소 추가하는 기능 구현" />
+    <MESSAGE value="feat : 문서 저장소 상태를 추가하는 기능 구현" />
+    <MESSAGE value="feat : 문서를 추가하는 기능 구현" />
+    <MESSAGE value="feat : 문서 저장소 목록 출력을 위한 toString() 구현" />
+    <MESSAGE value="feat : 오류 메세지 추가" />
+    <MESSAGE value="feat : 입출력을 담당하는 View 클래스 구현" />
+    <MESSAGE value="feat : 프로그램의 전체 흐름을 담당하는 Controller(mian) 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : 프로그램의 전체 흐름을 담당하는 Controller(mian) 구현" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/domain/SQLInteraction/SQLInteracter.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

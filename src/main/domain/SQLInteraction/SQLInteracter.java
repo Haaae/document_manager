@@ -41,7 +41,8 @@ public class SQLInteracter {
     public static List<Status> readStatusesNoInRepository(String repositoryName) {
         List<Status> statuses = new ArrayList<>();
 
-        String query = Query.READING_STATUSES_IN_REPOSITORY_WITHOUT_NAME + repositoryName;
+        String query = "SELECT * FROM Repository_status WHERE repository_name = " + "'" + repositoryName + "'" ;
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
@@ -87,13 +88,13 @@ public class SQLInteracter {
 
     public static void deleteStatus(int no, String repositoryName) {
         String query = "DELETE FROM Repository_status WHERE no = '" + no + "'"
-                + ", repository_name = " + repositoryName + "'";
+                + " AND repository_name = '" + repositoryName + "'";
         executeQuery(query);
     }
 
     public static void deleteDocument(String name, String repositoryName, int statusNo) {
-        String query = "DELETE FROM Document WHERE name = " + name + ", repository_name = '" + repositoryName + "'"
-                + ", status_no = '" + statusNo + "'";
+        String query = "DELETE FROM Document WHERE name = " + name + " AND repository_name = " + repositoryName + "'"
+                + " AND status_no = '" + statusNo + "'";
         executeQuery(query);
 
     }
@@ -101,11 +102,13 @@ public class SQLInteracter {
     public static void insertRepository(String name) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
+            Connection connection = DriverManager.getConnection(
+                    Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
 
             String query = "INSERT INTO Repository VALUES (?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, name);
+            preparedStatement.execute();
 
             connection.close();
         } catch (Exception e) {
@@ -122,10 +125,10 @@ public class SQLInteracter {
 
             String query = "INSERT INTO Repository_status VALUES (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, statusCount++);
+            preparedStatement.setInt(1, statusCount + 1);
             preparedStatement.setString(2, message);
             preparedStatement.setString(3, repositoryName);
-
+            preparedStatement.execute();
             connection.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -144,7 +147,7 @@ public class SQLInteracter {
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, repositoryName);
             preparedStatement.setInt(4, no);
-
+            preparedStatement.execute();
             connection.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -170,7 +173,7 @@ public class SQLInteracter {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(Info.JDBC_URL, Info.SQL_ID, Info.SQL_PASSWORD);
             Statement statement = connection.createStatement();
-            statement.executeQuery(query);
+            statement.executeUpdate(query);
             connection.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
